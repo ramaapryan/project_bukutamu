@@ -10,5 +10,4 @@ class BukuTamu extends Model
     use HasFactory;
     protected $table = 'kunjungan';
     protected $fillable = ['nama', 'alamat', 'tgl_berkunjung', 'kepentingan', 'tujuan'];
-
 }

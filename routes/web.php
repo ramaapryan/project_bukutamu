@@ -14,3 +14,15 @@ Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('acti
 
 // Route::post('/buku-tamu', [BukuTamuController::class, 'store'])->name('buku-tamu.store');
 Route::post('/buku-tamu', [BukuTamuController::class, 'submit']);
+
+Route::get('/dataTamu',[BukuTamuController::class,  'index'])->middleware('auth');
+
+Route::get('/kunjungan/edit/{id}', [BukuTamuController::class, 'edit'])->middleware('auth');
+// Route::post('/kunjungan/update/{id}/', [BukuTamuController::class, 'update'])->name('kunjungan.update');
+Route::post('/kunjungan/update', [BukuTamuController::class,'update'])->middleware('auth');
+Route::post('/kunjungan/update/{id}', [BukuTamuController::class,'update'])->name('kunjungan.update')->middleware('auth');
+Route::get('/kunjungan/hapus/{id}',[BukuTamuController::class,'hapus'])->middleware('auth');
+
+Route::get('/master', function(){
+    return view('layouts.master');
+});

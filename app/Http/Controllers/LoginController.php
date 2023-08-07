@@ -26,7 +26,8 @@ class LoginController extends Controller
         ];
 
         if (Auth::Attempt($data)) {
-            return redirect('home');
+            // return redirect('home');
+            return redirect('dataTamu');
         }else{
             Session::flash('error', 'Email atau Password Salah');
             return redirect('/');
